@@ -1,0 +1,40 @@
+{
+    "name": "jlto",
+    "version": "0.0.1",
+    "description": "Nodejs-based tool for optimizing Jinja like templates",
+    "keywords": [
+        "jlto",
+        "jinja",
+        "django",
+        "twig",
+        "nunjucks",
+        "optimize",
+        "minify"
+    ],
+    "homepage": "https://github.com/DmitryKrekota/jlto",
+    "bugs": {
+        "url": "https://github.com/DmitryKrekota/jlto/issues",
+        "email": "dmitry.krekota@gmail.com"
+    },
+    "author": {
+        "name": "Dmitry Krekota",
+        "email": "dmitry.krekota@gmail.com",
+        "url": "https://github.com/DmitryKrekota"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/DmitryKrekota/jlto.git"
+    },
+    "main": "index.js",
+    "scripts": {
+        "tests": "mocha tests/**/*.spec.js --reporter dot"
+    },
+    "engines": {
+        "node": ">=6"
+    },
+    "devDependencies": {
+        "chai": "^3.5.0",
+        "mocha": "^3.2.0"
+    },
+    "license": "MIT"
+}

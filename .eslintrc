@@ -1,0 +1,103 @@
+{
+    "extends": "eslint:recommended",
+    "env": {
+        "es6": true,
+        "node": true,
+        "mocha": true
+    },
+    "rules": {
+        "semi": [
+            1,
+            "always"
+        ],
+        "no-mixed-spaces-and-tabs": [
+            1
+        ],
+        "no-trailing-spaces": [
+            1
+        ],
+        "space-infix-ops": [
+            1
+        ],
+        "quotes": [
+            1,
+            "single",
+            { "allowTemplateLiterals": true }
+        ],
+        "no-unused-vars": 1,
+        "one-var": [
+            1,
+            "never"
+        ],
+        "vars-on-top": 1,
+        "no-undef": 1,
+        "no-use-before-define": 1,
+        "keyword-spacing": 1,
+        "key-spacing": 1,
+        "space-before-blocks": 1,
+        "space-in-parens": 1,
+        "indent": [
+            1,
+            4
+        ],
+        "camelcase": [
+            1,
+            {
+                "properties": "always"
+            }
+        ],
+        "comma-spacing": [
+            1,
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "comma-style": [
+            1,
+            "last"
+        ],
+        "newline-after-var": [
+            1,
+            "always"
+        ],
+        "newline-before-return": 1,
+        "object-curly-spacing": [
+            1,
+            "never"
+        ],
+        "semi-spacing": [
+            1,
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "eqeqeq": 1
+    },
+    "valid-jsdoc": [
+        1,
+        {
+            "requireReturn": false,
+            "requireReturnDescription": true,
+            "requireParamDescription": true,
+            "preferType": {
+                "string": "String",
+                "number": "Number",
+                "boolean": "Boolean",
+                "function": "Function",
+                "object": "Object",
+                "array": "Array",
+                "date": "Date",
+                "error": "Error"
+            },
+            "prefer": {
+                "todo": "TODO",
+                "return": "returns",
+                "arg": "param",
+                "argument": "param",
+                "method": "function"
+            }
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+*.bak
+*.psd
+*.log
+*.tmp
+*.gz
+*.db
+.hg
+.svn
+.idea
+.vscode
+
+/node_modules/*
