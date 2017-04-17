@@ -1,7 +1,6 @@
 - service: tests
   type: serial
   steps:
-      - name: link node_modules folder
-        command: ln -s /node_modules ./node_modules
       - name: run tests
+        command: ln -s /node_modules ./node_modules
         command: npm run tests
