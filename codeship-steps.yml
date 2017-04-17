@@ -1,5 +1,7 @@
 - service: testing
   type: serial
   steps:
+      - name: install dependencies
+        command: yarn
       - name: run tests
         command: npm run tests
