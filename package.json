@@ -28,7 +28,7 @@
     "main": "index.js",
     "scripts": {
         "test": "istanbul cover node_modules/mocha/bin/_mocha test/**/*.spec.js",
-        "codeship-testing": "npm run codeship-testing && istanbul-coveralls"
+        "codeship-testing": "npm run test && istanbul-coveralls"
     },
     "engines": {
         "node": ">=6"
