@@ -1,12 +1,6 @@
-FROM dmitrykrekota/docker-node-tests-runner
+FROM kkarczmarczyk/node-yarn
 
-# Create app directory
+# Move project to /jlto directory
 RUN mkdir -p /jlto
-WORKDIR /jlto
-
-# Bundle app source
 COPY . /jlto
-
-# defined in package.json
-RUN ln -s /node_modules ./node_modules
-RUN npm i
+WORKDIR /jlto
