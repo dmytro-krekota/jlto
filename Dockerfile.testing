@@ -1,6 +1,9 @@
-FROM kkarczmarczyk/node-yarn
+FROM kkarczmarczyk/node-yarn:7.6
 
 # Move project to /jlto directory
 RUN mkdir -p /jlto
 COPY . /jlto
 WORKDIR /jlto
+
+# Install dependencies
+RUN yarn

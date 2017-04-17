@@ -1,6 +1,4 @@
 - type: serial
   steps:
-      - name: install dependencies
-        command: yarn install
       - name: run tests
         command: npm run tests
