@@ -1,11 +1,4 @@
-- service: tests
-  type: serial
+- type: serial
   steps:
-      - name: ln
-        command: ln -s /node_modules ./node_modules
-      - name: ls
-        command: ls
-      - name: pwd
-        command: pwd
-      - name: npm run tests
-        command: npm run tests
+    - service: test
+      command: npm run tests

@@ -1,5 +1,5 @@
-version: '2'
-
-services:
-  tests:
-    image: dmitrykrekota/docker-node-tests-runner
+test:
+  build:
+    image: test
+    dockerfile_path: ./Dockerfile.testing
+  cached: false

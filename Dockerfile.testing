@@ -1,0 +1,12 @@
+FROM dmitrykrekota:docker-node-tests-runner
+
+# Create app directory
+RUN mkdir -p /jlto
+WORKDIR /jlto
+
+# Bundle app source
+COPY . /jlto
+
+# defined in package.json
+RUN ln -s /node_modules ./node_modules
+RUN npm i
