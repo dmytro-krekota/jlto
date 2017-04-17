@@ -1,4 +1,5 @@
-- type: serial
+- service: testing
+  type: serial
   steps:
       - name: run tests
         command: npm run tests

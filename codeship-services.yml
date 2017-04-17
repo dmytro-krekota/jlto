@@ -1,5 +1,5 @@
-test:
+testing:
   build:
-    image: test
+    image: testing
     dockerfile_path: ./Dockerfile.testing
-  cached: false
+  cached: true
