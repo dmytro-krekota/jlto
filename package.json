@@ -27,7 +27,7 @@
     },
     "main": "index.js",
     "scripts": {
-        "test": "istanbul cover node_modules/mocha/bin/_mocha tests/**/*.spec.js"
+        "test": "istanbul cover node_modules/mocha/bin/_mocha test/**/*.spec.js"
     },
     "engines": {
         "node": ">=6"
