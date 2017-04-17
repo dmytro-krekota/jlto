@@ -1,9 +1,5 @@
 - service: testing
   type: serial
   steps:
-      - name: run code testing
-        command: npm run test
-      - name: prepare lcov.info for istanbul-coveralls
-        command: cat ./coverage/lcov.info | node_modules/.bin/istanbul-coveralls
-      - name: push code coverage to coveralls.io
-        command: node node_modules/.bin/istanbul-coveralls
+      - name: run codeship testing
+        command: npm run codeship-testing
