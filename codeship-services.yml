@@ -2,4 +2,4 @@ version: '2'
 
 services:
   testing:
-    dockerfile_path: ./Dockerfile.testing
+    build: ./Dockerfile.testing
