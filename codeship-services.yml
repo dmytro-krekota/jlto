@@ -2,4 +2,4 @@ version: '2'
 
 services:
   testing:
-    build: ./Dockerfile.testing
+    dockerfile: ./Dockerfile.testing
