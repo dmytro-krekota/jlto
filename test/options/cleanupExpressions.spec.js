@@ -64,4 +64,28 @@ describe('Tests for cleanupExpressions option', () => {
         assert.equal('{{ a1 }}{{  a2  }}{{   a3   }}', result);
     });
 
+    it('Should clear newlines for 3 expressions', () => {
+        let result = jlto.optimizeString(`{{ a1
+        }}{{ a2
+        }}{{ a3
+        }}`, {
+            cleanupExpressions: true
+        });
+
+        assert.equal('{{a1}}{{a2}}{{a3}}', result);
+    });
+
+    it('Should clear extra newlines for 2 math expressions', () => {
+        let result = jlto.optimizeString(`
+{{1
++
+2 }}{{ 3
+-
+4}}`, {
+            cleanupExpressions: true
+        });
+
+        assert.equal('\n{{1+2}}{{3-4}}', result);
+    });
+
 });
