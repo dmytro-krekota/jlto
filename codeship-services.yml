@@ -2,4 +2,6 @@ version: '2'
 
 services:
   testing:
-    dockerfile: ./Dockerfile.testing
+    build:
+      context: .
+      dockerfile: Dockerfile.testing
