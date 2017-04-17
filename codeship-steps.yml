@@ -3,4 +3,6 @@
   steps:
       - name: run tests
         command: ln -s /node_modules ./node_modules
+        command: ls
+        command: pwd
         command: npm run tests
