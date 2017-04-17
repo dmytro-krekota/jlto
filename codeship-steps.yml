@@ -1,5 +1,7 @@
 - service: testing
   type: parallel
   steps:
-      - name: run tests
-        command: npm run tests
+      - name: run code testing
+        command: npm run test
+      - name: push code coverage to coveralls.io
+        command: istanbul-coveralls
