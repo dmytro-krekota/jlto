@@ -1,5 +1,5 @@
 - service: testing
-  type: parallel
+  type: serial
   steps:
       - name: run code testing
         command: npm run test
