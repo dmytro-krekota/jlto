@@ -1,4 +1,4 @@
-FROM dmitrykrekota:docker-node-tests-runner
+FROM dmitrykrekota/docker-node-tests-runner
 
 # Create app directory
 RUN mkdir -p /jlto
