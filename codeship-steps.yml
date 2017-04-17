@@ -4,4 +4,4 @@
       - name: run code testing
         command: npm run test
       - name: push code coverage to coveralls.io
-        command: istanbul-coveralls
+        command: node node_modules/.bin/istanbul-coveralls
