@@ -31,13 +31,14 @@
     "main": "index.js",
     "scripts": {
         "test": "istanbul cover node_modules/mocha/bin/_mocha test/**/*.spec.js",
-        "codeship-testing": "npm run test && istanbul-coveralls"
+        "codeship-testing": "eslint test lib --max-warnings=0 && npm test && istanbul-coveralls"
     },
     "engines": {
         "node": ">=6"
     },
     "devDependencies": {
         "chai": "^3.5.0",
+        "eslint": "^3.19.0",
         "istanbul": "^0.4.5",
         "istanbul-coveralls": "^1.0.3",
         "mocha": "^3.2.0"

@@ -81,9 +81,7 @@ describe('Tests for cleanupExpressions option', () => {
 +
 2 }}{{ 3
 -
-4}}`, {
-            cleanupExpressions: true
-        });
+4}}`, {cleanupExpressions: true});
 
         assert.equal('\n{{1+2}}{{3-4}}', result);
     });
