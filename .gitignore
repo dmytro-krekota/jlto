@@ -4,10 +4,8 @@
 *.tmp
 *.gz
 *.db
-.hg
-.svn
-.idea
-.vscode
-
+*.DS_Store
+/.idea/
+/.vscode/
 /node_modules/
 /coverage/

@@ -1,0 +1,5 @@
+.editorconfig
+.eslintrc
+Dockerfile.testing
+*.yml
+/test/

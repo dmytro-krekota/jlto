@@ -3,11 +3,14 @@
     "version": "0.0.4",
     "description": "Nodejs-based tool for optimizing Jinja like templates",
     "keywords": [
-        "jlto",
         "jinja",
         "django",
-        "twig",
         "nunjucks",
+        "twig",
+        "twig.js",
+        "liquid",
+        "jinjava",
+        "jlto",
         "optimize",
         "minify"
     ],
