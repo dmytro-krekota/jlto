@@ -30,8 +30,8 @@
     },
     "main": "index.js",
     "scripts": {
-        "test": "istanbul cover node_modules/mocha/bin/_mocha test/**/*.spec.js",
-        "codeship-testing": "eslint test lib --max-warnings=0 && npm test && istanbul-coveralls"
+        "test": "eslint test lib --max-warnings=0 && istanbul cover node_modules/mocha/bin/_mocha test/**/*.spec.js",
+        "codeship-testing": "npm test && istanbul-coveralls"
     },
     "engines": {
         "node": ">=6"
