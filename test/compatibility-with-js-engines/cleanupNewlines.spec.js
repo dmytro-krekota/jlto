@@ -2,7 +2,7 @@ let assert = require('chai').assert;
 let jlto = require('../../');
 let testUtils = require('../test-utils/testUtils');
 
-it('Should not clear new lines in string with double quotes', () => {
+it('Should not clear new lines in string with double quotes [nunjucks] [twig]', () => {
     let template = '<div>{{ "\n123\n321\n" }}</div>';
     let optimizedTemplate = jlto.optimizeString(template);
     let expectedOptimizedTemplate = '<div>{{"\n123\n321\n"}}</div>';
@@ -15,7 +15,7 @@ it('Should not clear new lines in string with double quotes', () => {
     assert.equal(expectedRenderedString, testUtils.twig.renderString(optimizedTemplate));
 });
 
-it('Should not clear new lines in strings with double quotes using concat (~) and options', () => {
+it('Should not clear new lines in strings with double quotes using concat (~) and options [nunjucks] [twig]', () => {
     let template = '<div>{{ "\n123\n321\n"~test~"\nabc\nabc\n" }}</div>';
     let optimizedTemplate = jlto.optimizeString(template);
     let options = {test: '---'};

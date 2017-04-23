@@ -6,6 +6,7 @@ Jinja Like Templates Optimizer (JLTO) is a Nodejs-based tool for optimizing Jinj
 ### Supported template engines:
 * [Nunjucks](https://mozilla.github.io/nunjucks/) (Tested with unit tests)
 * [Twig.js](https://github.com/twigjs/twig.js) (Tested with unit tests)
+* [LiquidNode](https://github.com/sirlantis/liquid-node) (Tested with unit tests)
 * [Twig](https://twig.sensiolabs.org/)
 * [Jinja](http://jinja.pocoo.org/)
 * [Django](https://docs.djangoproject.com/en/1.11/ref/templates/language/)

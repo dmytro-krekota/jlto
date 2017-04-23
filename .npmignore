@@ -1,5 +1,7 @@
 .editorconfig
 .eslintrc
+.npmignore
 Dockerfile.testing
 *.yml
+*.tmp
 /test/
