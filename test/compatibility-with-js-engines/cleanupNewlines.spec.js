@@ -28,3 +28,16 @@ it('Should not clear new lines in strings with double quotes using concat (~) an
     assert.equal(expectedRenderedString, testUtils.twig.renderString(template, options));
     assert.equal(expectedRenderedString, testUtils.twig.renderString(optimizedTemplate, options));
 });
+
+it('Should not clear new lines in string with single quotes [nunjucks] [twig]', () => {
+    let template = `<div>\n={{ \n\n\n'\n123\n321\n'\n\n\n }}</div>`;
+    let optimizedTemplate = jlto.optimizeString(template);
+    let expectedOptimizedTemplate = `<div>\n={{'\n123\n321\n'}}</div>`;
+    let expectedRenderedString = `<div>\n=\n123\n321\n</div>`;
+
+    assert.equal(expectedOptimizedTemplate, optimizedTemplate);
+    assert.equal(expectedRenderedString, testUtils.nunjucks.renderString(template));
+    assert.equal(expectedRenderedString, testUtils.nunjucks.renderString(optimizedTemplate));
+    assert.equal(expectedRenderedString, testUtils.twig.renderString(template));
+    assert.equal(expectedRenderedString, testUtils.twig.renderString(optimizedTemplate));
+});
