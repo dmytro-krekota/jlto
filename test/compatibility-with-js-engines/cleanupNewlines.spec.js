@@ -31,11 +31,11 @@ describe('Tests for cleanup new lines', () => {
         assert.equal(expectedRenderedString, testUtils.twig.renderString(optimizedTemplate, options));
     });
 
-    it('Should not clear new lines in string with single quotes [nunjucks] [twig]', () => {
-        let template = `<div>\n={{ \n\n\n'\n123\n321\n'\n\n\n }}</div>`;
+    it('Should not clear some new lines in block "set" [nunjucks] [twig]', () => {
+        let template = `{% \nset\n \nfoo\n = \n{'foo': "\nbar\n", 'bar': \n"\nfoo\n"}\n\n\n%}{{foo.bar}}{{foo.foo}}`;
         let optimizedTemplate = jlto.optimizeString(template);
-        let expectedOptimizedTemplate = `<div>\n={{'\n123\n321\n'}}</div>`;
-        let expectedRenderedString = `<div>\n=\n123\n321\n</div>`;
+        let expectedOptimizedTemplate = `{%set foo = {\'foo\': "\nbar\n", \'bar\': "\nfoo\n"}%}{{foo.bar}}{{foo.foo}}`;
+        let expectedRenderedString = `\nfoo\n\nbar\n`;
 
         assert.equal(expectedOptimizedTemplate, optimizedTemplate);
         assert.equal(expectedRenderedString, testUtils.nunjucks.renderString(template));
