@@ -1,6 +1,6 @@
 let assert = require('chai').assert;
-let jlto = require('../../');
-let testUtils = require('../test-utils/testUtils');
+let jlto = require('../../../');
+let testUtils = require('../../test-utils/testUtils');
 
 describe('Tests for cleanup new lines', () => {
 

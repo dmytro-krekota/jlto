@@ -1,5 +1,5 @@
 let assert = require('chai').assert;
-let jlto = require('../../');
+let jlto = require('../../../');
 
 describe('Tests for removeComments option', () => {
 

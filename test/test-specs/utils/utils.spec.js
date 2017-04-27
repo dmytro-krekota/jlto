@@ -1,5 +1,5 @@
 let assert = require('chai').assert;
-let utils = require('../../lib/core/utils');
+let utils = require('../../../lib/core/utils');
 
 describe('Tests for core utils', () => {
 

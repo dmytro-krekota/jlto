@@ -1,18 +1,19 @@
 {
     "name": "jlto",
-    "version": "0.0.9",
+    "version": "0.0.10",
     "description": "Nodejs-based tool for optimizing Jinja like templates",
     "keywords": [
         "jinja",
-        "django",
-        "nunjucks",
-        "twig",
-        "twig.js",
+        "optimizer",
         "liquid",
+        "min",
         "jinjava",
-        "jlto",
-        "optimize",
-        "minify"
+        "minify",
+        "nunjucks",
+        "minifier",
+        "twig",
+        "compressor",
+        "django"
     ],
     "homepage": "https://github.com/DmitryKrekota/jlto",
     "bugs": {
