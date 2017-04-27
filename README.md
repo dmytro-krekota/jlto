@@ -13,6 +13,8 @@ Jinja Like Templates Optimizer (JLTO) is a Nodejs-based tool for optimizing Jinj
 * [Liquid](https://shopify.github.io/liquid/)
 * [Jinjava](https://github.com/HubSpot/jinjava)
 
+**Keywords:** jinja, optimizer, liquid, min, jinjava, minify, nunjucks, minifier, twig, compressor, django. 
+
 ## Tests
 
 Unit tests are written using Mocha and Chai. To run, invoke `npm test`.
