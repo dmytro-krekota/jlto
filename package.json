@@ -38,14 +38,14 @@
         "node": ">=6"
     },
     "devDependencies": {
-        "chai": "^3.5.0",
+        "chai": "^4.0.2",
         "eslint": "^3.19.0",
         "istanbul": "^0.4.5",
         "istanbul-coveralls": "^1.0.3",
         "liquid-node": "^2.6.1",
-        "mocha": "^3.2.0",
-        "nunjucks": "^3.0.0",
-        "twig": "^1.10.4"
+        "mocha": "^3.4.2",
+        "nunjucks": "^3.0.1",
+        "twig": "^1.10.5"
     },
     "license": "MIT"
 }
