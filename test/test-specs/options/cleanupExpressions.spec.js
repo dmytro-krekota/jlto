@@ -68,9 +68,7 @@ describe('Tests for cleanupExpressions option', () => {
         let result = jlto.optimizeString(`{{ a1
         }}{{ a2
         }}{{ a3
-        }}`, {
-            cleanupExpressions: true
-        });
+        }}`, {cleanupExpressions: true});
 
         assert.equal('{{a1}}{{a2}}{{a3}}', result);
     });

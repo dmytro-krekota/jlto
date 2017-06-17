@@ -23,15 +23,15 @@ let jlto = require("jlto");
 let template = `
 {{ hello }}
 {{   "<John   &   Paul> ?"     | escape   }}
-{{ '2.7'   | round }}
+{{ '2.7'   | round }}{%  if  product  %}Product exists.{%  endif  %}
 `;
 let optimizedTemplate = jlto.optimizeString(template);
 
 // optimizedTemplate:
 // `
-// {{hello}}
-// {{"<John   &   Paul> ?"|escape}}
-// {{'2.7'|round}}
+//{{hello}}
+//{{"<John   &   Paul> ?"|escape}}
+//{{'2.7'|round}}{%if product%}Product exists.{%endif%}
 // `
 ```
 

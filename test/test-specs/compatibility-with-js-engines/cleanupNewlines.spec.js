@@ -34,7 +34,7 @@ describe('Tests for cleanup new lines', () => {
     it('Should not clear some new lines in block "set" [nunjucks] [twig]', () => {
         let template = `{% \nset\n \nfoo\n = \n{'foo': "\nbar\n", 'bar': \n"\nfoo\n"}\n\n\n%}{{foo.bar}}{{foo.foo}}`;
         let optimizedTemplate = jlto.optimizeString(template);
-        let expectedOptimizedTemplate = `{%set foo = {\'foo\': "\nbar\n", \'bar\': "\nfoo\n"}%}{{foo.bar}}{{foo.foo}}`;
+        let expectedOptimizedTemplate = `{%set foo={'foo':"\nbar\n",'bar':"\nfoo\n"}%}{{foo.bar}}{{foo.foo}}`;
         let expectedRenderedString = `\nfoo\n\nbar\n`;
 
         assert.equal(expectedOptimizedTemplate, optimizedTemplate);

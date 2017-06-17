@@ -74,30 +74,5 @@
             }
         ],
         "eqeqeq": 1
-    },
-    "valid-jsdoc": [
-        1,
-        {
-            "requireReturn": false,
-            "requireReturnDescription": true,
-            "requireParamDescription": true,
-            "preferType": {
-                "string": "String",
-                "number": "Number",
-                "boolean": "Boolean",
-                "function": "Function",
-                "object": "Object",
-                "array": "Array",
-                "date": "Date",
-                "error": "Error"
-            },
-            "prefer": {
-                "todo": "TODO",
-                "return": "returns",
-                "arg": "param",
-                "argument": "param",
-                "method": "function"
-            }
-        }
-    ]
+    }
 }

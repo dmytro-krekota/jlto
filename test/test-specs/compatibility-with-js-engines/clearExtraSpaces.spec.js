@@ -34,7 +34,6 @@ describe('Tests for clearing extra spaces', () => {
         assert.equal(expectedRenderedString, testUtils.twig.renderString(optimizedTemplate));
         testUtils.liquid.renderString(template).then((result1) => {
             testUtils.liquid.renderString(optimizedTemplate).then((result2) => {
-                assert.equal(expectedOptimizedTemplate, optimizedTemplate);
                 assert.equal(expectedRenderedString, result1);
                 assert.equal(expectedRenderedString, result2);
                 done();
@@ -55,7 +54,6 @@ describe('Tests for clearing extra spaces', () => {
         assert.equal(expectedRenderedString, testUtils.twig.renderString(optimizedTemplate));
         testUtils.liquid.renderString(template).then((result1) => {
             testUtils.liquid.renderString(optimizedTemplate).then((result2) => {
-                assert.equal(expectedOptimizedTemplate, optimizedTemplate);
                 assert.equal(expectedRenderedString, result1);
                 assert.equal(expectedRenderedString, result2);
                 done();
@@ -63,27 +61,34 @@ describe('Tests for clearing extra spaces', () => {
         });
     });
 
-    // TODO: some map - 'if' (first tag) require space after, 'or', 'and' spaces??
-    // it('Should clear ... [nunjucks] [twig] [liquid]', (done) => {
-    //     let template = `{% if product.type == "Shirt" or product.type == "Shoes" %}This is a {{ product.type }} or a pair of shoes.{% endif %}`;
-    //     let optimizedTemplate = jlto.optimizeString(template);
-    //     let options = {product: {type: 'Shirt'}};
-    //     let expectedOptimizedTemplate = `{%ifproduct.type=="Shirt"orproduct.type=="Shoes"%}This is a {{product.type}} or a pair of shoes.{%endif%}`;
-    //     let expectedRenderedString = `3`;
-    //
-    //     assert.equal(expectedOptimizedTemplate, optimizedTemplate);
-    //     assert.equal(expectedRenderedString, testUtils.nunjucks.renderString(template, options));
-    //     assert.equal(expectedRenderedString, testUtils.nunjucks.renderString(optimizedTemplate, options));
-    //     assert.equal(expectedRenderedString, testUtils.twig.renderString(template, options));
-    //     assert.equal(expectedRenderedString, testUtils.twig.renderString(optimizedTemplate, options));
-    //     testUtils.liquid.renderString(template, options).then((result1) => {
-    //         testUtils.liquid.renderString(optimizedTemplate, options).then((result2) => {
-    //             assert.equal(expectedOptimizedTemplate, optimizedTemplate);
-    //             assert.equal(expectedRenderedString, result1);
-    //             assert.equal(expectedRenderedString, result2);
-    //             done();
-    //         });
-    //     });
-    // });
+    it('Should clear extra spaces near some special chars [nunjucks] [twig]', () => {
+        let template = `{% if product.type == "Shirt" or product.type == "Shoes" %}This is a {{ product.type }} or a pair of shoes.{% endif %}`;
+        let optimizedTemplate = jlto.optimizeString(template);
+        let options = {product: {type: 'Shirt'}};
+        let expectedOptimizedTemplate = `{%if product.type=="Shirt" or product.type=="Shoes"%}This is a {{product.type}} or a pair of shoes.{%endif%}`;
+        let expectedRenderedString = `This is a Shirt or a pair of shoes.`;
+
+        assert.equal(expectedOptimizedTemplate, optimizedTemplate);
+        assert.equal(expectedRenderedString, testUtils.nunjucks.renderString(template, options));
+        assert.equal(expectedRenderedString, testUtils.nunjucks.renderString(optimizedTemplate, options));
+        assert.equal(expectedRenderedString, testUtils.twig.renderString(template, options));
+        assert.equal(expectedRenderedString, testUtils.twig.renderString(optimizedTemplate, options));
+    });
+
+    it('Should clear extra spaces for `round` and `default` filters [liquid]', (done) => {
+        let template = `hello : {{ 55.1    |    round}} ! {{ foo | default         : 'bar' }}`;
+        let optimizedTemplate = jlto.optimizeString(template);
+        let expectedOptimizedTemplate = `hello : {{55.1|round}} ! {{foo|default:'bar'}}`;
+        let expectedRenderedString = `hello : 55 ! bar`;
+
+        assert.equal(expectedOptimizedTemplate, optimizedTemplate);
+        testUtils.liquid.renderString(template).then((result1) => {
+            testUtils.liquid.renderString(optimizedTemplate).then((result2) => {
+                assert.equal(expectedRenderedString, result1);
+                assert.equal(expectedRenderedString, result2);
+                done();
+            });
+        });
+    });
 
 });

@@ -1,6 +1,6 @@
 {
     "name": "jlto",
-    "version": "0.0.12",
+    "version": "1.0.0",
     "description": "Nodejs-based tool for optimizing Jinja like templates",
     "keywords": [
         "jinja",
@@ -31,7 +31,7 @@
     },
     "main": "index.js",
     "scripts": {
-        "test": "eslint test lib --max-warnings=0 && istanbul cover node_modules/mocha/bin/_mocha test/**/*.spec.js",
+        "test": "eslint test lib --max-warnings=0 --fix && istanbul cover node_modules/mocha/bin/_mocha test/**/*.spec.js",
         "codeship-testing": "npm test && istanbul-coveralls"
     },
     "engines": {
@@ -39,7 +39,7 @@
     },
     "devDependencies": {
         "chai": "^4.0.2",
-        "eslint": "^3.19.0",
+        "eslint": "^4.0.0",
         "istanbul": "^0.4.5",
         "istanbul-coveralls": "^1.0.3",
         "liquid-node": "^2.6.1",
