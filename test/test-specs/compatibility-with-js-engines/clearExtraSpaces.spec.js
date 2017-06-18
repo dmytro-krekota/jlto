@@ -91,4 +91,17 @@ describe('Tests for clearing extra spaces', () => {
         });
     });
 
+    it('Should clear extra spaces for expression with concat operator "~" [nunjucks] [twig]', () => {
+        let template = `<div>{{ "1" ~  "2" ~   "3" ~    "4" ~     "5" }}</div>`;
+        let optimizedTemplate = jlto.optimizeString(template);
+        let expectedOptimizedTemplate = `<div>{{"1"~"2"~"3"~"4"~"5"}}</div>`;
+        let expectedRenderedString = `<div>12345</div>`;
+
+        assert.equal(expectedOptimizedTemplate, optimizedTemplate);
+        assert.equal(expectedRenderedString, testUtils.nunjucks.renderString(template));
+        assert.equal(expectedRenderedString, testUtils.nunjucks.renderString(optimizedTemplate));
+        assert.equal(expectedRenderedString, testUtils.twig.renderString(template));
+        assert.equal(expectedRenderedString, testUtils.twig.renderString(optimizedTemplate));
+    });
+
 });
