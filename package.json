@@ -1,6 +1,6 @@
 {
     "name": "jlto",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Nodejs-based tool for optimizing Jinja like templates",
     "keywords": [
         "jinja",
@@ -47,5 +47,8 @@
         "nunjucks": "^3.0.1",
         "twig": "^1.10.5"
     },
-    "license": "MIT"
+    "license": "MIT",
+    "dependencies": {
+        "html-minifier": "^3.5.2"
+    }
 }

@@ -30,4 +30,19 @@ describe('Tests for demo examples', () => {
         });
     });
 
+    it('Should minify html for demo example', () => {
+        let template = `
+<div {% if id %}id="{{ id | escape('html_attr') }}"{% endif %} class="section-container {{ classes | join(' ') | html_attribute }}">
+    <div class="section-writables">
+        {% for writable in writables  %}
+            {{ writable | write | raw }}
+        {% endfor %}
+    </div>
+</div>`;
+        let optimizedTemplate = jlto.optimizeString(template, {minifyHtml: true});
+        let expectedOptimizedTemplate = `<div {%if id%}id="{{id|escape('html_attr')}}" {%endif%} class="section-container {{classes|join(' ')|html_attribute}}"><div class="section-writables">{%for writable in writables%} {{writable|write|raw}} {%endfor%}</div></div>`;
+
+        assert.equal(expectedOptimizedTemplate, optimizedTemplate);
+    });
+
 });

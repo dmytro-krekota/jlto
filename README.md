@@ -17,6 +17,8 @@ Jinja Like Templates Optimizer (JLTO) is a Nodejs-based tool for optimizing Jinj
 
 ## Usage
 
+**Simple example:**
+
 ```js
 let jlto = require("jlto");
 
@@ -33,6 +35,25 @@ let optimizedTemplate = jlto.optimizeString(template);
 //{{"<John   &   Paul> ?"|escape}}
 //{{'2.7'|round}}{%if product%}Product exists.{%endif%}
 // `
+```
+
+**Example with using minifyHtml option:**
+
+```js
+let jlto = require("jlto");
+
+let template = `
+<div {% if id %}id="{{ id | escape('html_attr') }}"{% endif %} class="section-container {{ classes | join(' ') | html_attribute }}">
+    <div class="section-writables">
+        {% for writable in writables  %}
+            {{ writable | write | raw }}
+        {% endfor %}
+    </div>
+</div>`;
+let optimizedTemplate = jlto.optimizeString(template, {minifyHtml: true});
+
+// optimizedTemplate:
+// `<div {%if id%}id="{{id|escape('html_attr')}}" {%endif%} class="section-container {{classes|join(' ')|html_attribute}}"><div class="section-writables">{%for writable in writables%} {{writable|write|raw}} {%endfor%}</div></div>`
 ```
 
 ## Tests

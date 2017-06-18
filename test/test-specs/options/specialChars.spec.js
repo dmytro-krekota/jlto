@@ -8,11 +8,11 @@ describe('Tests for specialChars option', () => {
 <div>
 {% for user in users %}
     <div>{{ "*" ~ " " ~ user.name }}</div>
-{% else %}
+{% endfor %}
 </div>
 `);
 
-        assert.equal('\n<div>\n{%for user in users%}\n    <div>{{"*"~" "~user.name}}</div>\n{%else%}\n</div>\n', result);
+        assert.equal('\n<div>\n{%for user in users%}\n    <div>{{"*"~" "~user.name}}</div>\n{%endfor%}\n</div>\n', result);
     });
 
 });
