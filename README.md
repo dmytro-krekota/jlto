@@ -21,14 +21,12 @@ Jinja Like Templates Optimizer (JLTO) is a Nodejs-based tool for optimizing Jinj
 
 ```js
 let jlto = require("jlto");
-
 let template = `
 {{ hello }}
 {{   "<John   &   Paul> ?"     | escape   }}
 {{ '2.7'   | round }}{%  if  product  %}Product exists.{%  endif  %}
 `;
 let optimizedTemplate = jlto.optimizeString(template);
-
 // optimizedTemplate:
 // `
 //{{hello}}
@@ -41,7 +39,6 @@ let optimizedTemplate = jlto.optimizeString(template);
 
 ```js
 let jlto = require("jlto");
-
 let template = `
 <div {% if id %}id="{{ id | escape('html_attr') }}"{% endif %} class="section-container {{ classes | join(' ') | html_attribute }}">
     <div class="section-writables">
@@ -51,9 +48,33 @@ let template = `
     </div>
 </div>`;
 let optimizedTemplate = jlto.optimizeString(template, {minifyHtml: true});
-
 // optimizedTemplate:
-// `<div {%if id%}id="{{id|escape('html_attr')}}" {%endif%} class="section-container {{classes|join(' ')|html_attribute}}"><div class="section-writables">{%for writable in writables%} {{writable|write|raw}} {%endfor%}</div></div>`
+// `<div {%if id%} id="{{id|escape('html_attr')}}" {%endif%} class="section-container {{classes|join(' ')|html_attribute}}"><div class="section-writables"> {%for writable in writables%} {{writable|write|raw}} {%endfor%} </div></div>`
+```
+
+**Example of "nunjucks" templates minification with custom GruntJS task:**
+
+```js
+module.exports = function(grunt) {
+    grunt.registerTask('min-nunjucks', 'Min nunjucks templates', function() {
+        let jlto = require("jlto");
+        let fs = require('fs');
+        let glob = require('glob');
+        let done = this.async();
+        glob('./**/*.nunjucks.html', (error, files) => {
+            files.forEach((filePath) => {
+                let fileContent;
+                fileContent = fs.readFileSync(filePath).toString();
+                try {
+                    fileContent = jlto.optimizeString(fileContent, {minifyHtml: true});
+                    fs.writeFileSync(filePath, fileContent);
+                } catch (ignoded) {
+                }
+            });
+            return done();
+        });
+    });
+};
 ```
 
 ## Tests
