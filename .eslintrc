@@ -22,7 +22,9 @@
         "quotes": [
             1,
             "single",
-            { "allowTemplateLiterals": true }
+            {
+                "allowTemplateLiterals": true
+            }
         ],
         "no-unused-vars": 1,
         "one-var": [
@@ -73,6 +75,10 @@
                 "after": true
             }
         ],
-        "eqeqeq": 1
+        "eqeqeq": 1,
+        "linebreak-style": [
+            1,
+            "unix"
+        ]
     }
 }

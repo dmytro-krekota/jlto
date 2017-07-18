@@ -38,8 +38,8 @@
         "node": ">=6"
     },
     "devDependencies": {
-        "chai": "^4.0.2",
-        "eslint": "^4.1.1",
+        "chai": "^4.1.0",
+        "eslint": "^4.2.0",
         "istanbul": "^0.4.5",
         "istanbul-coveralls": "^1.0.3",
         "liquid-node": "^2.6.1",
