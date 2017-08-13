@@ -1,6 +1,6 @@
 {
     "name": "jlto",
-    "version": "1.1.1",
+    "version": "1.1.2",
     "description": "Nodejs-based tool for optimizing Jinja like templates",
     "keywords": [
         "jinja",
@@ -38,17 +38,17 @@
         "node": ">=6"
     },
     "devDependencies": {
-        "chai": "^4.1.0",
-        "eslint": "^4.2.0",
+        "chai": "^4.1.1",
+        "eslint": "^4.4.1",
         "istanbul": "^0.4.5",
         "istanbul-coveralls": "^1.0.3",
-        "liquid-node": "^2.6.1",
-        "mocha": "^3.4.2",
+        "liquid-node": "^3.0.0",
+        "mocha": "^3.5.0",
         "nunjucks": "^3.0.1",
         "twig": "^1.10.5"
     },
     "license": "MIT",
     "dependencies": {
-        "html-minifier": "^3.5.2"
+        "html-minifier": "^3.5.3"
     }
 }
