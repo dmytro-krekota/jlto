@@ -1,4 +1,4 @@
-FROM node:8.0.0
+FROM node:8.9.4
 
 # Move project to /jlto directory
 RUN mkdir -p /jlto
