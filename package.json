@@ -43,7 +43,7 @@
         "istanbul": "0.4.5",
         "istanbul-coveralls": "1.0.3",
         "liquid-node": "3.0.0",
-        "mocha": "5.0.0",
+        "mocha": "5.0.1",
         "nunjucks": "3.0.1",
         "twig": "1.10.5"
     },
