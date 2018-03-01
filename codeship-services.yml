@@ -4,4 +4,4 @@ services:
   testing:
     build:
       context: .
-      dockerfile: Dockerfile.testing
+      dockerfile: test.dockerfile

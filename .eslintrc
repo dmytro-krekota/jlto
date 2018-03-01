@@ -1,7 +1,9 @@
 {
     "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
     "env": {
-        "es6": true,
         "node": true,
         "mocha": true
     },
@@ -75,10 +77,6 @@
                 "after": true
             }
         ],
-        "eqeqeq": 1,
-        "linebreak-style": [
-            1,
-            "unix"
-        ]
+        "eqeqeq": 1
     }
 }
