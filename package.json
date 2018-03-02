@@ -32,7 +32,7 @@
     "main": "index.js",
     "scripts": {
         "lint": "eslint test lib --max-warnings=0 --fix",
-        "test": "eslint test lib --max-warnings=0 --fix && istanbul cover node_modules/mocha/bin/_mocha test/**/*.spec.js",
+        "test": "npm run lint && istanbul cover node_modules/mocha/bin/_mocha test/**/*.spec.js",
         "codeship-testing": "npm test && istanbul-coveralls",
         "prettier": "prettier \"{test,lib}/**/*.js\" --write"
     },
