@@ -13,6 +13,7 @@
 .editorconfig
 .eslintrc
 .npmignore
+.prettierrc
 Dockerfile.testing
 *.yml
 /test/
