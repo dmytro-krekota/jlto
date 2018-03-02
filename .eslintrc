@@ -1,7 +1,7 @@
 {
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": 2018
+        "ecmaVersion": 2017
     },
     "env": {
         "node": true,
@@ -10,7 +10,7 @@
     "rules": {
         "semi": [
             1,
-            "always"
+            "never"
         ],
         "no-mixed-spaces-and-tabs": [
             1
