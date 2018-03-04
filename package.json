@@ -57,6 +57,6 @@
     },
     "license": "MIT",
     "dependencies": {
-        "html-minifier": "3.5.9"
+        "html-minifier": "3.5.10"
     }
 }
