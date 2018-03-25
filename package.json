@@ -1,6 +1,6 @@
 {
     "name": "jlto",
-    "version": "1.1.8",
+    "version": "1.1.9",
     "description": "Nodejs-based tool for optimizing Jinja like templates",
     "keywords": [
         "jinja",
@@ -29,6 +29,7 @@
         "type": "git",
         "url": "git://github.com/DmitryKrekota/jlto.git"
     },
+    "license": "MIT",
     "main": "index.js",
     "scripts": {
         "lint": "eslint test lib --max-warnings=0 --fix",
@@ -55,7 +56,6 @@
         "prettier": "1.11.1",
         "twig": "1.10.5"
     },
-    "license": "MIT",
     "dependencies": {
         "html-minifier": "3.5.10"
     }

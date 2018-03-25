@@ -1,3 +1,3 @@
-let jlto = require('./lib/jlto');
+let jlto = require('./lib/jlto')
 
-module.exports = new jlto();
+module.exports = new jlto()
