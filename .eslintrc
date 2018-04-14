@@ -36,6 +36,7 @@
         "vars-on-top": 1,
         "no-undef": 1,
         "no-use-before-define": 1,
+        "no-console": 0,
         "keyword-spacing": 1,
         "key-spacing": 1,
         "space-before-blocks": 1,

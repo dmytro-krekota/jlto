@@ -4,11 +4,14 @@
 
 [![NPM](https://nodei.co/npm/jlto.png?downloads=true)](https://nodei.co/npm/jlto/)
 
-Jinja Like Templates Optimizer (JLTO) is a Nodejs-based tool for optimizing Jinja like templates.
+> Jinja Like Templates Optimizer (JLTO) is a Nodejs-based tool for optimizing Jinja like templates.
 
-Gulp tool for JLTO: [gulp-jlto](https://www.npmjs.com/package/gulp-jlto).
+**Gulp tool for JLTO:**
 
-### Supported template engines:
+[gulp-jlto](https://www.npmjs.com/package/gulp-jlto)
+
+**Supported template engines:**
+
 * [Nunjucks](https://mozilla.github.io/nunjucks/) (Tested with unit tests)
 * [Twig.js](https://github.com/twigjs/twig.js) (Tested with unit tests)
 * [LiquidNode](https://github.com/sirlantis/liquid-node) (Tested with unit tests)
@@ -17,6 +20,23 @@ Gulp tool for JLTO: [gulp-jlto](https://www.npmjs.com/package/gulp-jlto).
 * [Django](https://docs.djangoproject.com/en/1.11/ref/templates/language/)
 * [Liquid](https://shopify.github.io/liquid/)
 * [Jinjava](https://github.com/HubSpot/jinjava)
+
+**Available options:**
+
+* expressionStart - symbols at the beginning of expressions
+* expressionEnd - symbols at the end of expressions
+* blockStart - symbols at the beginning of blocks
+* blockEnd - symbols at the end of blocks
+* commentStart - symbols at the beginning of comments
+* commentEnd - symbols at the beginning of comments
+* specialChars - special chars in blocks and expressions
+* cleanupBlocks - flag for optimize blocks
+* cleanupExpressions - flag for optimize expressions
+* removeComments - flag for removing comments
+* minifyHtml - flag for minifying html code with [html-minifier](https://www.npmjs.com/package/html-minifier)
+* minifyHtmlOptions - options for html-minifier
+
+See default values for above options [here](https://github.com/DmitryKrekota/jlto/blob/master/lib/core/default.js).
 
 ## Usage
 
@@ -55,7 +75,7 @@ let optimizedTemplate = jlto.optimizeString(template, {minifyHtml: true});
 // `<div {%if id%} id="{{id|escape('html_attr')}}" {%endif%} class="section-container {{classes|join(' ')|html_attribute}}"><div class="section-writables"> {%for writable in writables%} {{writable|write|raw}} {%endfor%} </div></div>`
 ```
 
-**Example of "nunjucks" templates minification with custom GruntJS task:**
+**Example of "nunjucks" templates minification with the custom GruntJS task:**
 
 ```js
 module.exports = (grunt) => {
