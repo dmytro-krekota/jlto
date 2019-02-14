@@ -43,6 +43,6 @@ describe('Tests for demo examples', () => {
     })
     let expectedOptimizedTemplate = `<div {%if id%} id="{{id|escape('html_attr')}}" {%endif%} class="section-container {{classes|join(' ')|html_attribute}}"><div class="section-writables"> {%for writable in writables%} {{writable|write|raw}} {%endfor%} </div></div>`
 
-    assert.equal(expectedOptimizedTemplate, optimizedTemplate)
+    assert.equal(expectedOptimizedTemplate, !optimizedTemplate)
   })
 })
