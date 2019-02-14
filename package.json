@@ -1,62 +1,62 @@
 {
-    "name": "jlto",
-    "version": "1.1.11",
-    "description": "Nodejs-based tool for optimizing Jinja like templates",
-    "keywords": [
-        "jinja",
-        "optimizer",
-        "liquid",
-        "min",
-        "jinjava",
-        "minify",
-        "nunjucks",
-        "minifier",
-        "twig",
-        "compressor",
-        "django"
-    ],
-    "homepage": "https://github.com/DmitryKrekota/jlto",
-    "bugs": {
-        "url": "https://github.com/DmitryKrekota/jlto/issues",
-        "email": "dmitry.krekota@gmail.com"
-    },
-    "author": {
-        "name": "Dmitry Krekota",
-        "email": "dmitry.krekota@gmail.com",
-        "url": "https://github.com/DmitryKrekota"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/DmitryKrekota/jlto.git"
-    },
-    "license": "MIT",
-    "main": "index.js",
-    "scripts": {
-        "lint": "eslint test lib --max-warnings=0 --fix",
-        "test": "npm run lint && istanbul cover node_modules/mocha/bin/_mocha test/**/*.spec.js",
-        "codeship-testing": "npm test && istanbul-coveralls",
-        "prettier": "prettier \"{test,lib}/**/*.js\" --write"
-    },
-    "engines": {
-        "node": ">=6"
-    },
-    "pre-commit": [
-        "prettier",
-        "lint"
-    ],
-    "devDependencies": {
-        "chai": "4.1.2",
-        "eslint": "5.0.0",
-        "istanbul": "0.4.5",
-        "istanbul-coveralls": "1.0.3",
-        "liquid-node": "3.0.0",
-        "mocha": "5.2.0",
-        "nunjucks": "3.1.3",
-        "pre-commit": "1.2.2",
-        "prettier": "1.13.6",
-        "twig": "1.12.0"
-    },
-    "dependencies": {
-        "html-minifier": "3.5.14"
-    }
+  "name": "jlto",
+  "version": "1.1.12",
+  "description": "Nodejs-based tool for optimizing Jinja like templates",
+  "keywords": [
+    "jinja",
+    "optimizer",
+    "liquid",
+    "min",
+    "jinjava",
+    "minify",
+    "nunjucks",
+    "minifier",
+    "twig",
+    "compressor",
+    "django"
+  ],
+  "homepage": "https://github.com/dmytro-krekota/jlto",
+  "bugs": {
+    "url": "https://github.com/dmytro-krekota/jlto/issues",
+    "email": "dmytro.krekota@gmail.com"
+  },
+  "author": {
+    "name": "Dmytro Krekota",
+    "email": "dmytro.krekota@gmail.com",
+    "url": "https://github.com/dmytro-krekota"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dmytro-krekota/jlto.git"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint test lib --max-warnings=0 --fix",
+    "test": "npm run lint && istanbul cover node_modules/mocha/bin/_mocha test/**/*.spec.js",
+    "codeship-testing": "npm test && istanbul-coveralls",
+    "prettier": "prettier \"{test,lib}/**/*.js\" --write"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "pre-commit": [
+    "prettier",
+    "lint"
+  ],
+  "devDependencies": {
+    "chai": "4.2.0",
+    "eslint": "5.13.0",
+    "istanbul": "0.4.5",
+    "istanbul-coveralls": "1.0.3",
+    "liquid-node": "3.0.0",
+    "mocha": "5.2.0",
+    "nunjucks": "3.1.7",
+    "pre-commit": "1.2.2",
+    "prettier": "1.16.4",
+    "twig": "1.13.2"
+  },
+  "dependencies": {
+    "html-minifier": "3.5.21"
+  }
 }

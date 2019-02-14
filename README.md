@@ -1,6 +1,6 @@
 # JLTO
 
-[![Codeship](https://codeship.com/projects/c4c3b120-052e-0135-745d-6646a19db98e/status?branch=master)](https://app.codeship.com/projects/213501) [![Coverage](https://coveralls.io/repos/github/DmitryKrekota/jlto/badge.svg?branch=master)](https://coveralls.io/github/DmitryKrekota/jlto?branch=master) [![Dependencies](https://david-dm.org/DmitryKrekota/jlto.svg)](https://david-dm.org/DmitryKrekota/jlto) [![DevDependencies](https://david-dm.org/DmitryKrekota/jlto/dev-status.svg)](https://david-dm.org/DmitryKrekota/jlto?type=dev) [![Join the chat at https://gitter.im/DmitryKrekota_jlto/Lobby](https://badges.gitter.im/DmitryKrekota_jlto/Lobby.svg)](https://gitter.im/DmitryKrekota_jlto/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Greenkeeper badge](https://badges.greenkeeper.io/DmitryKrekota/jlto.svg)](https://greenkeeper.io/)
+[![Codeship](https://codeship.com/projects/c4c3b120-052e-0135-745d-6646a19db98e/status?branch=master)](https://app.codeship.com/projects/213501) [![Coverage](https://coveralls.io/repos/github/dmytro-krekota/jlto/badge.svg?branch=master)](https://coveralls.io/github/dmytro-krekota/jlto?branch=master) [![Dependencies](https://david-dm.org/dmytro-krekota/jlto.svg)](https://david-dm.org/dmytro-krekota/jlto) [![DevDependencies](https://david-dm.org/dmytro-krekota/jlto/dev-status.svg)](https://david-dm.org/dmytro-krekota/jlto?type=dev) [![Join the chat at https://gitter.im/dmytro-krekota_jlto/Lobby](https://badges.gitter.im/dmytro-krekota_jlto/Lobby.svg)](https://gitter.im/dmytro-krekota_jlto/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![NPM](https://nodei.co/npm/jlto.png?downloads=true)](https://nodei.co/npm/jlto/)
 
@@ -36,7 +36,7 @@
 * minifyHtml - flag for minifying html code with [html-minifier](https://www.npmjs.com/package/html-minifier)
 * minifyHtmlOptions - options for html-minifier
 
-See default values for above options [here](https://github.com/DmitryKrekota/jlto/blob/master/lib/core/default.js).
+See default values for above options [here](https://github.com/dmytro-krekota/jlto/blob/master/lib/core/default.js).
 
 ## Usage
 
@@ -64,11 +64,11 @@ let optimizedTemplate = jlto.optimizeString(template);
 let jlto = require("jlto");
 let template = `
 <div {% if id %}id="{{ id | escape('html_attr') }}"{% endif %} class="section-container {{ classes | join(' ') | html_attribute }}">
-    <div class="section-writables">
-        {% for writable in writables  %}
-            {{ writable | write | raw }}
-        {% endfor %}
-    </div>
+  <div class="section-writables">
+    {% for writable in writables  %}
+      {{ writable | write | raw }}
+    {% endfor %}
+  </div>
 </div>`;
 let optimizedTemplate = jlto.optimizeString(template, {minifyHtml: true});
 // optimizedTemplate:
@@ -79,24 +79,24 @@ let optimizedTemplate = jlto.optimizeString(template, {minifyHtml: true});
 
 ```js
 module.exports = (grunt) => {
-    grunt.registerTask('min-nunjucks', 'Min nunjucks templates', () => {
-        let jlto = require('jlto');
-        let fs = require('fs');
-        let glob = require('glob');
-        let done = this.async();
-        glob('./**/*.nunjucks.html', (error, files) => {
-            files.forEach((filePath) => {
-                let fileContent;
-                fileContent = fs.readFileSync(filePath).toString();
-                try {
-                    fileContent = jlto.optimizeString(fileContent, {minifyHtml: true});
-                    fs.writeFileSync(filePath, fileContent);
-                } catch (ignored) {
-                }
-            });
-            return done();
-        });
+  grunt.registerTask('min-nunjucks', 'Min nunjucks templates', () => {
+    let jlto = require('jlto');
+    let fs = require('fs');
+    let glob = require('glob');
+    let done = this.async();
+    glob('./**/*.nunjucks.html', (error, files) => {
+      files.forEach((filePath) => {
+        let fileContent;
+        fileContent = fs.readFileSync(filePath).toString();
+        try {
+          fileContent = jlto.optimizeString(fileContent, {minifyHtml: true});
+          fs.writeFileSync(filePath, fileContent);
+        } catch (ignored) {
+        }
+      });
+      return done();
     });
+  });
 };
 ```
 
