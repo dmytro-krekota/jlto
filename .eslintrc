@@ -62,10 +62,6 @@
       1,
       "last"
     ],
-    "newline-after-var": [
-      1,
-      "always"
-    ],
     "newline-before-return": 1,
     "object-curly-spacing": [
       1,
