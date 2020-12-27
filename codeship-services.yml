@@ -1,4 +1,3 @@
-testing:
+app:
   build:
-    image: testing
-    dockerfile: testing.dockerfile
+    dockerfile: Dockerfile

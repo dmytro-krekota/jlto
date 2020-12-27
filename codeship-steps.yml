@@ -1,3 +1,4 @@
-- name: run codeship testing
-  service: testing
-  command: npm run codeship-testing
+- type: parallel
+  service: app
+  steps:
+    - command: npm run codeship-testing
