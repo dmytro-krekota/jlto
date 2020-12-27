@@ -1,4 +1,4 @@
-app:
+codeship_testing:
   build:
-    context: .
+    image: codeship_testing
     dockerfile: test.dockerfile

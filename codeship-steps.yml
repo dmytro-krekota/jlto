@@ -1,5 +1,3 @@
-- service: testing
-  type: serial
-  steps:
-    - name: run codeship testing
-      command: npm run codeship-testing
+- name: run codeship testing
+  service: codeship_testing
+  command: npm run codeship-testing
