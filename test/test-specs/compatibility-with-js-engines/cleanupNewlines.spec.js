@@ -27,7 +27,7 @@ describe('Tests for cleanup new lines', () => {
     assert.equal(expectedRenderedString, testUtils.nunjucks.renderString(template, options))
     assert.equal(expectedRenderedString, testUtils.nunjucks.renderString(optimizedTemplate, options))
     assert.equal(expectedRenderedString, testUtils.twig.renderString(template, options))
-    assert.equal(expectedRenderedString + 'temp', testUtils.twig.renderString(optimizedTemplate, options))
+    assert.equal(expectedRenderedString, testUtils.twig.renderString(optimizedTemplate, options))
   })
 
   it('Should not clear some new lines in block "set" [nunjucks] [twig]', () => {
