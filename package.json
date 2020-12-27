@@ -1,6 +1,6 @@
 {
   "name": "jlto",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Nodejs-based tool for optimizing Jinja like templates",
   "keywords": [
     "jinja",
@@ -28,6 +28,9 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/dmytro-krekota/jlto.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "license": "MIT",
   "main": "index.js",
