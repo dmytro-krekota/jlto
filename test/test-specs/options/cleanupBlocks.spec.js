@@ -10,7 +10,7 @@ describe('Tests for cleanupBlocks option', () => {
 
   it('Should trim extra spaces in block {%           extends "base.html"          %}', () => {
     let result = jlto.optimizeString('<div>{%           extends "base.html"          %}</div>', {
-      cleanupExpressions: true
+      cleanupExpressions: true,
     })
 
     assert.equal('<div>{%extends "base.html"%}</div>', result)
@@ -20,7 +20,7 @@ describe('Tests for cleanupBlocks option', () => {
     let result = jlto.optimizeString(
       '<div>{%  extends "base.html"  %}</div><div>{%  extends "base.html"  %}</div><div>{%  extends "base.html"  %}</div>',
       {
-        cleanupExpressions: true
+        cleanupExpressions: true,
       }
     )
 
@@ -34,7 +34,7 @@ describe('Tests for cleanupBlocks option', () => {
     let result = jlto.optimizeString('<div>{{{ custom1 }}}</div><div>{{{  custom2  }}}{{{   custom3    }}}</div>', {
       cleanupExpressions: true,
       blockStart: '{{{',
-      blockEnd: '}}}'
+      blockEnd: '}}}',
     })
 
     assert.equal('<div>{{{custom1}}}</div><div>{{{custom2}}}{{{custom3}}}</div>', result)
@@ -44,7 +44,7 @@ describe('Tests for cleanupBlocks option', () => {
     let result = jlto.optimizeString('<span>[ custom1 ][  custom2  ][   custom3    ]</span>', {
       cleanupExpressions: true,
       blockStart: '[',
-      blockEnd: ']'
+      blockEnd: ']',
     })
 
     assert.equal('<span>[custom1][custom2][custom3]</span>', result)
@@ -54,7 +54,7 @@ describe('Tests for cleanupBlocks option', () => {
     let result = jlto.optimizeString('<span>[== custom1 ][==  custom2  ][==   custom3    ]</span>', {
       cleanupExpressions: true,
       blockStart: '[==',
-      blockEnd: ']'
+      blockEnd: ']',
     })
 
     assert.equal('<span>[==custom1][==custom2][==custom3]</span>', result)
@@ -62,7 +62,7 @@ describe('Tests for cleanupBlocks option', () => {
 
   it('Should not clear extra spaces in template for blocks', () => {
     let result = jlto.optimizeString('{%  extends "base.html"  %}{%  extends "base.html"  %}', {
-      cleanupBlocks: false
+      cleanupBlocks: false,
     })
 
     assert.equal('{%  extends "base.html"  %}{%  extends "base.html"  %}', result)
@@ -70,7 +70,7 @@ describe('Tests for cleanupBlocks option', () => {
 
   it('Should clear extra spaces for template with block "include"', () => {
     let result = jlto.optimizeString(`{% include 'partials/sidebar.html.twig' with {'blog':page} %}`, {
-      cleanupBlocks: true
+      cleanupBlocks: true,
     })
 
     assert.equal(`{%include 'partials/sidebar.html.twig' with {'blog':page}%}`, result)

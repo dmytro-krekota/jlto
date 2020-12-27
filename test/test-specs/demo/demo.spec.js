@@ -39,7 +39,7 @@ describe('Tests for demo examples', () => {
     </div>
 </div>`
     let optimizedTemplate = jlto.optimizeString(template, {
-      minifyHtml: true
+      minifyHtml: true,
     })
     let expectedOptimizedTemplate = `<div {%if id%} id="{{id|escape('html_attr')}}" {%endif%} class="section-container {{classes|join(' ')|html_attribute}}"><div class="section-writables"> {%for writable in writables%} {{writable|write|raw}} {%endfor%} </div></div>`
 

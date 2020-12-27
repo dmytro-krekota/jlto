@@ -1,7 +1,13 @@
 {
-  "extends": "eslint:recommended",
+  "plugins": [
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "prettier"
+  ],
   "parserOptions": {
-    "ecmaVersion": 2019
+    "ecmaVersion": 2020
   },
   "env": {
     "node": true,
@@ -25,7 +31,8 @@
       1,
       "single",
       {
-        "allowTemplateLiterals": true
+        "allowTemplateLiterals": true,
+        "avoidEscape": true
       }
     ],
     "no-unused-vars": 1,

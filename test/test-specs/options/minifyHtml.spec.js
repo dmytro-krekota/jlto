@@ -13,7 +13,7 @@ describe('Tests for minifyHtml option', () => {
 </div>
 `,
       {
-        minifyHtml: true
+        minifyHtml: true,
       }
     )
 
@@ -42,7 +42,7 @@ describe('Tests for minifyHtml option', () => {
     </tr>
 `,
       {
-        minifyHtml: true
+        minifyHtml: true,
       }
     )
 
