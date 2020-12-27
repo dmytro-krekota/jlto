@@ -1,6 +1,6 @@
 {
   "name": "jlto",
-  "version": "1.3.3",
+  "version": "1.3.5",
   "description": "Nodejs-based tool for optimizing Jinja like templates",
   "keywords": [
     "jinja",
