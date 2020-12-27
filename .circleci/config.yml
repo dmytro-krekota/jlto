@@ -1,7 +1,17 @@
+jobs:
+  ci-testing:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages:
+          cache-path: ~/project/node_modules
+          override-ci-command: npm ci
+      - run: npm run ci-testing
+
 version: 2.1
 orbs:
-  node: circleci/node@3.0.0
+  node: circleci/node@4.1.0
 workflows:
   node-tests:
     jobs:
-      - node/test
+      - ci-testing
