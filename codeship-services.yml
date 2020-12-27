@@ -1,4 +1,4 @@
-codeship_testing:
+testing:
   build:
-    image: codeship_testing
-    dockerfile: test.dockerfile
+    image: testing
+    dockerfile: testing.dockerfile
