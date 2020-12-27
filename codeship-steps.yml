@@ -1,4 +1,0 @@
-- type: parallel
-  service: app
-  steps:
-    - command: npm run codeship-testing
