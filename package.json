@@ -29,9 +29,6 @@
     "type": "git",
     "url": "git://github.com/dmytro-krekota/jlto.git"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "license": "MIT",
   "main": "index.js",
   "scripts": {
