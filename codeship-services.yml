@@ -1,7 +1,4 @@
-version: '2'
-
-services:
-  testing:
-    build:
-      context: .
-      dockerfile: test.dockerfile
+app:
+  build:
+    context: .
+    dockerfile: test.dockerfile
