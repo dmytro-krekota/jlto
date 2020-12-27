@@ -34,7 +34,7 @@
   "scripts": {
     "lint": "eslint test lib --max-warnings=0 --fix",
     "test": "npm run lint && jest --coverage",
-    "codeship-testing": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "ci-testing": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "prettier": "prettier \"{test,lib}/**/*.js\" --write"
   },
   "engines": {
