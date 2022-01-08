@@ -7,7 +7,7 @@
     "prettier"
   ],
   "parserOptions": {
-    "ecmaVersion": 2020
+    "ecmaVersion": 2022
   },
   "env": {
     "node": true,
@@ -15,8 +15,7 @@
   },
   "rules": {
     "semi": [
-      1,
-      "never"
+      1
     ],
     "no-mixed-spaces-and-tabs": [
       1

@@ -1,7 +1,7 @@
 # JLTO
 
 [![CircleCI](https://circleci.com/gh/dmytro-krekota/jlto.svg?style=svg)](https://app.circleci.com/pipelines/github/dmytro-krekota/jlto)
-[![Coverage](https://coveralls.io/repos/github/dmytro-krekota/jlto/badge.svg?branch=master)](https://coveralls.io/github/dmytro-krekota/jlto?branch=master) [![Dependencies](https://david-dm.org/dmytro-krekota/jlto.svg)](https://david-dm.org/dmytro-krekota/jlto) [![DevDependencies](https://david-dm.org/dmytro-krekota/jlto/dev-status.svg)](https://david-dm.org/dmytro-krekota/jlto?type=dev) [![Join the chat at https://gitter.im/dmytro-krekota_jlto/Lobby](https://badges.gitter.im/dmytro-krekota_jlto/Lobby.svg)](https://gitter.im/dmytro-krekota_jlto/community?source=orgpage)
+[![Coverage](https://coveralls.io/repos/github/dmytro-krekota/jlto/badge.svg?branch=master)](https://coveralls.io/github/dmytro-krekota/jlto?branch=master) [![Join the chat at https://gitter.im/dmytro-krekota_jlto/Lobby](https://badges.gitter.im/dmytro-krekota_jlto/Lobby.svg)](https://gitter.im/dmytro-krekota_jlto/community?source=orgpage)
 
 [![NPM](https://nodei.co/npm/jlto.png?downloads=true)](https://nodei.co/npm/jlto/)
 

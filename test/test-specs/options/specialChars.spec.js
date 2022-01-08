@@ -1,5 +1,5 @@
-let assert = require('chai').assert
-let jlto = require('../../../')
+let assert = require('chai').assert;
+let jlto = require('../../../');
 
 describe('Tests for specialChars option', () => {
   it('Should clear extra spaces for concat operator "~"', () => {
@@ -9,8 +9,8 @@ describe('Tests for specialChars option', () => {
     <div>{{ "*" ~ " " ~ user.name }}</div>
 {% endfor %}
 </div>
-`)
+`);
 
-    assert.equal('\n<div>\n{%for user in users%}\n    <div>{{"*"~" "~user.name}}</div>\n{%endfor%}\n</div>\n', result)
-  })
-})
+    assert.equal('\n<div>\n{%for user in users%}\n    <div>{{"*"~" "~user.name}}</div>\n{%endfor%}\n</div>\n', result);
+  });
+});
