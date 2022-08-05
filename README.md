@@ -1,3 +1,11 @@
+# Support Ukraine 🇺🇦
+
+- Via United24 platform (the initiative of the President of Ukraine):
+  - [One click donation (credit card, bank transfer or crypto)](https://u24.gov.ua/)
+- Via National Bank of Ukraine:
+  - [Ukrainian army](https://bank.gov.ua/en/about/support-the-armed-forces)
+  - [Humanitarian aid to Ukraine](https://bank.gov.ua/en/about/humanitarian-aid-to-ukraine)
+
 # JLTO
 
 [![CircleCI](https://circleci.com/gh/dmytro-krekota/jlto.svg?style=svg)](https://app.circleci.com/pipelines/github/dmytro-krekota/jlto)
@@ -44,13 +52,13 @@ See default values for above options [here](https://github.com/dmytro-krekota/jl
 **Simple example:**
 
 ```js
-let jlto = require('jlto')
+let jlto = require('jlto');
 let template = `
 {{ hello }}
 {{   "<John   &   Paul> ?"     | escape   }}
 {{ '2.7'   | round }}{%  if  product  %}Product exists.{%  endif  %}
-`
-let optimizedTemplate = jlto.optimizeString(template)
+`;
+let optimizedTemplate = jlto.optimizeString(template);
 // optimizedTemplate:
 // `
 //{{hello}}
@@ -62,7 +70,7 @@ let optimizedTemplate = jlto.optimizeString(template)
 **Example of using minifyHtml option:**
 
 ```js
-let jlto = require('jlto')
+let jlto = require('jlto');
 let template = `
 <div {% if id %}id="{{ id | escape('html_attr') }}"{% endif %} class="section-container {{ classes | join(' ') | html_attribute }}">
   <div class="section-writables">
@@ -70,8 +78,8 @@ let template = `
       {{ writable | write | raw }}
     {% endfor %}
   </div>
-</div>`
-let optimizedTemplate = jlto.optimizeString(template, {minifyHtml: true})
+</div>`;
+let optimizedTemplate = jlto.optimizeString(template, {minifyHtml: true});
 // optimizedTemplate:
 // `<div {%if id%} id="{{id|escape('html_attr')}}" {%endif%} class="section-container {{classes|join(' ')|html_attribute}}"><div class="section-writables"> {%for writable in writables%} {{writable|write|raw}} {%endfor%} </div></div>`
 ```
@@ -81,23 +89,23 @@ let optimizedTemplate = jlto.optimizeString(template, {minifyHtml: true})
 ```js
 module.exports = (grunt) => {
   grunt.registerTask('min-nunjucks', 'Min nunjucks templates', () => {
-    let jlto = require('jlto')
-    let fs = require('fs')
-    let glob = require('glob')
-    let done = this.async()
+    let jlto = require('jlto');
+    let fs = require('fs');
+    let glob = require('glob');
+    let done = this.async();
     glob('./**/*.nunjucks.html', (error, files) => {
       files.forEach((filePath) => {
-        let fileContent
-        fileContent = fs.readFileSync(filePath).toString()
+        let fileContent;
+        fileContent = fs.readFileSync(filePath).toString();
         try {
-          fileContent = jlto.optimizeString(fileContent, {minifyHtml: true})
-          fs.writeFileSync(filePath, fileContent)
+          fileContent = jlto.optimizeString(fileContent, {minifyHtml: true});
+          fs.writeFileSync(filePath, fileContent);
         } catch (ignored) {}
-      })
-      return done()
-    })
-  })
-}
+      });
+      return done();
+    });
+  });
+};
 ```
 
 ## Tests
