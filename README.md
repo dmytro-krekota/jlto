@@ -6,6 +6,8 @@
   - [Ukrainian army](https://bank.gov.ua/en/about/support-the-armed-forces)
   - [Humanitarian aid to Ukraine](https://bank.gov.ua/en/about/humanitarian-aid-to-ukraine)
 
+[#StandWithUkraine](https://twitter.com/hashtag/StandWithUkraine)
+
 # JLTO
 
 [![CircleCI](https://circleci.com/gh/dmytro-krekota/jlto.svg?style=svg)](https://app.circleci.com/pipelines/github/dmytro-krekota/jlto)
