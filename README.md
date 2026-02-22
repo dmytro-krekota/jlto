@@ -1,13 +1,3 @@
-# Support Ukraine 🇺🇦
-
-- Via United24 platform (the initiative of the President of Ukraine):
-  - [One click donation (credit card, bank transfer or crypto)](https://u24.gov.ua/)
-- Via National Bank of Ukraine:
-  - [Ukrainian army](https://bank.gov.ua/en/about/support-the-armed-forces)
-  - [Humanitarian aid to Ukraine](https://bank.gov.ua/en/about/humanitarian-aid-to-ukraine)
-
-[#StandWithUkraine](https://twitter.com/hashtag/StandWithUkraine)
-
 # JLTO
 
 [![CircleCI](https://circleci.com/gh/dmytro-krekota/jlto.svg?style=svg)](https://app.circleci.com/pipelines/github/dmytro-krekota/jlto)
@@ -44,10 +34,12 @@
 - cleanupBlocks - flag for optimize blocks
 - cleanupExpressions - flag for optimize expressions
 - removeComments - flag for removing comments
-- minifyHtml - flag for minifying html code with [html-minifier](https://www.npmjs.com/package/html-minifier)
-- minifyHtmlOptions - options for html-minifier
+- minifyHtml - flag for minifying html code with [html-minifier-next](https://www.npmjs.com/package/html-minifier-next)
+- minifyHtmlOptions - options for html-minifier-next
 
 See default values for above options [here](https://github.com/dmytro-krekota/jlto/blob/master/lib/core/default.js).
+
+`optimizeString` always returns a Promise, so use `await` (or `.then(...)`) for all calls.
 
 ## Usage
 
@@ -60,13 +52,14 @@ let template = `
 {{   "<John   &   Paul> ?"     | escape   }}
 {{ '2.7'   | round }}{%  if  product  %}Product exists.{%  endif  %}
 `;
-let optimizedTemplate = jlto.optimizeString(template);
-// optimizedTemplate:
-// `
-//{{hello}}
-//{{"<John   &   Paul> ?"|escape}}
-//{{'2.7'|round}}{%if product%}Product exists.{%endif%}
-// `
+jlto.optimizeString(template).then((optimizedTemplate) => {
+  // optimizedTemplate:
+  // `
+  //{{hello}}
+  //{{"<John   &   Paul> ?"|escape}}
+  //{{'2.7'|round}}{%if product%}Product exists.{%endif%}
+  // `
+});
 ```
 
 **Example of using minifyHtml option:**
@@ -81,9 +74,10 @@ let template = `
     {% endfor %}
   </div>
 </div>`;
-let optimizedTemplate = jlto.optimizeString(template, {minifyHtml: true});
-// optimizedTemplate:
-// `<div {%if id%} id="{{id|escape('html_attr')}}" {%endif%} class="section-container {{classes|join(' ')|html_attribute}}"><div class="section-writables"> {%for writable in writables%} {{writable|write|raw}} {%endfor%} </div></div>`
+jlto.optimizeString(template, {minifyHtml: true}).then((optimizedTemplate) => {
+  // optimizedTemplate:
+  // `<div {%if id%} id="{{id|escape('html_attr')}}" {%endif%} class="section-container {{classes|join(' ')|html_attribute}}"><div class="section-writables"> {%for writable in writables%} {{writable|write|raw}} {%endfor%} </div></div>`
+});
 ```
 
 **Example of "nunjucks" templates minification with the custom GruntJS task:**
@@ -95,15 +89,15 @@ module.exports = (grunt) => {
     let fs = require('fs');
     let glob = require('glob');
     let done = this.async();
-    glob('./**/*.nunjucks.html', (error, files) => {
-      files.forEach((filePath) => {
+    glob('./**/*.nunjucks.html', async (error, files) => {
+      for (const filePath of files) {
         let fileContent;
         fileContent = fs.readFileSync(filePath).toString();
         try {
-          fileContent = jlto.optimizeString(fileContent, {minifyHtml: true});
+          fileContent = await jlto.optimizeString(fileContent, {minifyHtml: true});
           fs.writeFileSync(filePath, fileContent);
         } catch (ignored) {}
-      });
+      }
       return done();
     });
   });

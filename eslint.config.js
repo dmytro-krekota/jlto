@@ -1,0 +1,72 @@
+const js = require('@eslint/js');
+const globals = require('globals');
+const eslintPluginPrettierRecommended = require('eslint-plugin-prettier/recommended');
+
+module.exports = [
+  {
+    ignores: ['coverage/**', 'node_modules/**'],
+  },
+  js.configs.recommended,
+  eslintPluginPrettierRecommended,
+  {
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'commonjs',
+      globals: {
+        ...globals.node,
+        ...globals.mocha,
+      },
+    },
+    rules: {
+      semi: 1,
+      'no-mixed-spaces-and-tabs': 1,
+      'no-trailing-spaces': 1,
+      'space-infix-ops': 1,
+      quotes: [
+        1,
+        'single',
+        {
+          allowTemplateLiterals: true,
+          avoidEscape: true,
+        },
+      ],
+      'no-unused-vars': 1,
+      'one-var': [1, 'never'],
+      'vars-on-top': 1,
+      'no-undef': 1,
+      'no-use-before-define': 1,
+      'no-console': 0,
+      'keyword-spacing': 1,
+      'key-spacing': 1,
+      'space-before-blocks': 1,
+      'space-in-parens': 1,
+      indent: [1, 2],
+      camelcase: [
+        1,
+        {
+          properties: 'always',
+        },
+      ],
+      'comma-spacing': [
+        1,
+        {
+          before: false,
+          after: true,
+        },
+      ],
+      'comma-style': [1, 'last'],
+      'newline-before-return': 1,
+      'object-curly-spacing': [1, 'never'],
+      'semi-spacing': [
+        1,
+        {
+          before: false,
+          after: true,
+        },
+      ],
+      eqeqeq: 1,
+      'linebreak-style': [1, 'unix'],
+      'prettier/prettier': ['error'],
+    },
+  },
+];

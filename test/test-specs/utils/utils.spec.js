@@ -1,4 +1,4 @@
-let assert = require('chai').assert;
+let assert = require('assert');
 let utils = require('../../../lib/core/utils');
 
 describe('Tests for core utils', () => {
@@ -8,10 +8,10 @@ describe('Tests for core utils', () => {
     let c = undefined;
     let d = null;
 
-    assert.equal(false, utils.isNull(a));
-    assert.equal(false, utils.isNull(b));
-    assert.equal(false, utils.isNull(c));
-    assert.equal(true, utils.isNull(d));
+    assert.strictEqual(false, utils.isNull(a));
+    assert.strictEqual(false, utils.isNull(b));
+    assert.strictEqual(false, utils.isNull(c));
+    assert.strictEqual(true, utils.isNull(d));
   });
 
   it('Should check variables for undefined', () => {
@@ -20,9 +20,9 @@ describe('Tests for core utils', () => {
     let c = undefined;
     let d = null;
 
-    assert.equal(false, utils.isUndefined(a));
-    assert.equal(false, utils.isUndefined(b));
-    assert.equal(true, utils.isUndefined(c));
-    assert.equal(false, utils.isUndefined(d));
+    assert.strictEqual(false, utils.isUndefined(a));
+    assert.strictEqual(false, utils.isUndefined(b));
+    assert.strictEqual(true, utils.isUndefined(c));
+    assert.strictEqual(false, utils.isUndefined(d));
   });
 });

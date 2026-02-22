@@ -1,78 +1,92 @@
-let assert = require('chai').assert;
+let assert = require('assert');
 let jlto = require('../../../');
 
 describe('Tests for cleanupBlocks option', () => {
-  it('Should trim extra spaces by default (cleanupBlocks is true)', () => {
-    let result = jlto.optimizeString('<div>{% extends "base.html" %}</div>');
+  it('Should trim extra spaces by default (cleanupBlocks is true)', async () => {
+    let result = await jlto.optimizeString('<div>{% extends "base.html" %}</div>');
 
-    assert.equal('<div>{%extends "base.html"%}</div>', result);
+    assert.strictEqual('<div>{%extends "base.html"%}</div>', result);
   });
 
-  it('Should trim extra spaces in block {%           extends "base.html"          %}', () => {
-    let result = jlto.optimizeString('<div>{%           extends "base.html"          %}</div>', {
-      cleanupExpressions: true,
+  it('Should trim extra spaces in block {%           extends "base.html"          %}', async () => {
+    let result = await jlto.optimizeString('<div>{%           extends "base.html"          %}</div>', {
+      cleanupBlocks: true,
     });
 
-    assert.equal('<div>{%extends "base.html"%}</div>', result);
+    assert.strictEqual('<div>{%extends "base.html"%}</div>', result);
   });
 
-  it('Should trim extra spaces in three blocks', () => {
-    let result = jlto.optimizeString(
+  it('Should trim extra spaces in three blocks', async () => {
+    let result = await jlto.optimizeString(
       '<div>{%  extends "base.html"  %}</div><div>{%  extends "base.html"  %}</div><div>{%  extends "base.html"  %}</div>',
       {
-        cleanupExpressions: true,
-      }
+        cleanupBlocks: true,
+      },
     );
 
-    assert.equal(
+    assert.strictEqual(
       '<div>{%extends "base.html"%}</div><div>{%extends "base.html"%}</div><div>{%extends "base.html"%}</div>',
-      result
+      result,
     );
   });
 
-  it('Should trim extra spaces in template with custom blocks {{{ custom }}}', () => {
-    let result = jlto.optimizeString('<div>{{{ custom1 }}}</div><div>{{{  custom2  }}}{{{   custom3    }}}</div>', {
-      cleanupExpressions: true,
-      blockStart: '{{{',
-      blockEnd: '}}}',
-    });
+  it('Should trim extra spaces in template with custom blocks {{{ custom }}}', async () => {
+    let result = await jlto.optimizeString(
+      '<div>{{{ custom1 }}}</div><div>{{{  custom2  }}}{{{   custom3    }}}</div>',
+      {
+        cleanupBlocks: true,
+        cleanupExpressions: false,
+        blockStart: '{{{',
+        blockEnd: '}}}',
+      },
+    );
 
-    assert.equal('<div>{{{custom1}}}</div><div>{{{custom2}}}{{{custom3}}}</div>', result);
+    assert.strictEqual('<div>{{{custom1}}}</div><div>{{{custom2}}}{{{custom3}}}</div>', result);
   });
 
-  it('Should trim extra spaces in template with custom blocks [ custom ]', () => {
-    let result = jlto.optimizeString('<span>[ custom1 ][  custom2  ][   custom3    ]</span>', {
-      cleanupExpressions: true,
+  it('Should trim extra spaces in template with custom blocks [ custom ]', async () => {
+    let result = await jlto.optimizeString('<span>[ custom1 ][  custom2  ][   custom3    ]</span>', {
+      cleanupBlocks: true,
+      cleanupExpressions: false,
       blockStart: '[',
       blockEnd: ']',
     });
 
-    assert.equal('<span>[custom1][custom2][custom3]</span>', result);
+    assert.strictEqual('<span>[custom1][custom2][custom3]</span>', result);
   });
 
-  it('Should trim extra spaces in template with custom blocks [== custom ]', () => {
-    let result = jlto.optimizeString('<span>[== custom1 ][==  custom2  ][==   custom3    ]</span>', {
-      cleanupExpressions: true,
+  it('Should trim extra spaces in template with custom blocks [== custom ]', async () => {
+    let result = await jlto.optimizeString('<span>[== custom1 ][==  custom2  ][==   custom3    ]</span>', {
+      cleanupBlocks: true,
+      cleanupExpressions: false,
       blockStart: '[==',
       blockEnd: ']',
     });
 
-    assert.equal('<span>[==custom1][==custom2][==custom3]</span>', result);
+    assert.strictEqual('<span>[==custom1][==custom2][==custom3]</span>', result);
   });
 
-  it('Should not clear extra spaces in template for blocks', () => {
-    let result = jlto.optimizeString('{%  extends "base.html"  %}{%  extends "base.html"  %}', {
+  it('Should not clear extra spaces in template for blocks', async () => {
+    let result = await jlto.optimizeString('{%  extends "base.html"  %}{%  extends "base.html"  %}', {
       cleanupBlocks: false,
     });
 
-    assert.equal('{%  extends "base.html"  %}{%  extends "base.html"  %}', result);
+    assert.strictEqual('{%  extends "base.html"  %}{%  extends "base.html"  %}', result);
   });
 
-  it('Should clear extra spaces for template with block "include"', () => {
-    let result = jlto.optimizeString(`{% include 'partials/sidebar.html.twig' with {'blog':page} %}`, {
+  it('Should clear extra spaces for template with block "include"', async () => {
+    let result = await jlto.optimizeString(`{% include 'partials/sidebar.html.twig' with {'blog':page} %}`, {
       cleanupBlocks: true,
     });
 
-    assert.equal(`{%include 'partials/sidebar.html.twig' with {'blog':page}%}`, result);
+    assert.strictEqual(`{%include 'partials/sidebar.html.twig' with {'blog':page}%}`, result);
+  });
+
+  it('Should preserve spaces inside block string with escaped quote', async () => {
+    let result = await jlto.optimizeString('{% set value = "a\\" : b" %}', {
+      cleanupBlocks: true,
+    });
+
+    assert.strictEqual('{%set value="a\\" : b"%}', result);
   });
 });
