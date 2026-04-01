@@ -7,6 +7,9 @@
 
 > Jinja Like Templates Optimizer (JLTO) is a Nodejs-based tool for optimizing Jinja like templates.
 
+If you are thinking about contributing to open source, this article is a good read:
+[Why You Should Write Open Source Code and How It Helps Your Career](https://explainme.online/article/why-you-should-write-open-source-code-and-how-it-helps-your-career).
+
 **Gulp tool for JLTO:**
 
 [gulp-jlto](https://www.npmjs.com/package/gulp-jlto)
@@ -84,12 +87,13 @@ jlto.optimizeString(template, {minifyHtml: true}).then((optimizedTemplate) => {
 
 ```js
 module.exports = (grunt) => {
-  grunt.registerTask('min-nunjucks', 'Min nunjucks templates', () => {
+  grunt.registerTask('min-nunjucks', 'Min nunjucks templates', function () {
     let jlto = require('jlto');
     let fs = require('fs');
-    let glob = require('glob');
+    let {glob} = require('glob');
     let done = this.async();
-    glob('./**/*.nunjucks.html', async (error, files) => {
+    (async () => {
+      let files = await glob('./**/*.nunjucks.html');
       for (const filePath of files) {
         let fileContent;
         fileContent = fs.readFileSync(filePath).toString();
@@ -99,8 +103,44 @@ module.exports = (grunt) => {
         } catch (ignored) {}
       }
       return done();
-    });
+    })().catch(() => done());
   });
+};
+```
+
+**Example of "nunjucks" templates minification with the custom webpack plugin:**
+
+```js
+let jlto = require('jlto');
+let webpack = require('webpack');
+
+class MinNunjucksPlugin {
+  apply(compiler) {
+    compiler.hooks.thisCompilation.tap('MinNunjucksPlugin', (compilation) => {
+      compilation.hooks.processAssets.tapPromise(
+        {
+          name: 'MinNunjucksPlugin',
+          stage: webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE,
+        },
+        async (assets) => {
+          for (const filePath of Object.keys(assets)) {
+            if (!filePath.endsWith('.nunjucks.html')) {
+              continue;
+            }
+            let fileContent = compilation.getAsset(filePath).source.source().toString();
+            try {
+              fileContent = await jlto.optimizeString(fileContent, {minifyHtml: true});
+              compilation.updateAsset(filePath, new webpack.sources.RawSource(fileContent));
+            } catch (ignored) {}
+          }
+        },
+      );
+    });
+  }
+}
+
+module.exports = {
+  plugins: [new MinNunjucksPlugin()],
 };
 ```
 
