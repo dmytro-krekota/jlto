@@ -145,6 +145,10 @@ module.exports = {
 
 Tests are written using Jest and Node's `assert` module. To run them, invoke `npm test`.
 
+## Further Reading
+
+[Why You Should Write Open Source Code and How It Helps Your Career](https://explainme.online/article/why-you-should-write-open-source-code-and-how-it-helps-your-career)
+
 ## License
 
 JLTO is available under the [MIT license](https://opensource.org/licenses/MIT), see the LICENSE file for more information.
