@@ -146,7 +146,7 @@ module.exports = {
 
 ## Tests
 
-Unit tests are written using Mocha and Chai. To run, invoke `npm test`.
+Tests are written using Jest and Node's `assert` module. To run them, invoke `npm test`.
 
 ## License
 
