@@ -7,9 +7,6 @@
 
 > Jinja Like Templates Optimizer (JLTO) is a Nodejs-based tool for optimizing Jinja like templates.
 
-If you are thinking about contributing to open source, this article is a good read:
-[Why You Should Write Open Source Code and How It Helps Your Career](https://explainme.online/article/why-you-should-write-open-source-code-and-how-it-helps-your-career).
-
 **Gulp tool for JLTO:**
 
 [gulp-jlto](https://www.npmjs.com/package/gulp-jlto)
